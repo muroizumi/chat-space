@@ -15,7 +15,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|members|
 ### Association
 - has_many :messages
 - has_many :users, throgh:  :groups_users
