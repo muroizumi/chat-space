@@ -5,24 +5,37 @@
         =current_user.name
       %ul.menu
         %li.new-group
-          = link_to "#",class:"chat-side__side-header__side-box__new-group" do
+          = link_to new_group_path, class:"chat-side__side-header__side-box__new-group" do
             = icon('fas','edit', class: "chat-side__side-header__side-box__new-group--icon")
         %li.edit-user
           = link_to edit_user_path(current_user) do
             = icon('fas','cog', class: "chat-side__side-header__side-box__chat-user--icon")
   .chat-side__groups
-    .chat-side__groups__group
-      %p.group-name
-        techcamp
-      %p.latest-message
-        まだメッセージがありません
-    .chat-side__groups__group
-      %p.group-name
-        techcamp
-      %p.latest-message
-        まだメッセージがありません
-    .chat-side__groups__group
-      %p.group-name
-        techcamp
-      %p.latest-message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .chat-side__groups__group
+        = link_to '#', class: "group-link" do
+          .group-name
+            = group.name
+          .latest-message
+            メッセージはまだありません。
+
+
+
+
+
+
+    -# .chat-side__groups__group
+    -#   %p.group-name
+    -#     techcamp
+    -#   %p.latest-message
+    -#     まだメッセージがありません
+    -# .chat-side__groups__group
+    -#   %p.group-name
+    -#     techcamp
+    -#   %p.latest-message
+    -#     まだメッセージがありません
+    -# .chat-side__groups__group
+    -#   %p.group-name
+    -#     techcamp
+    -#   %p.latest-message
+    -#     まだメッセージがありません
