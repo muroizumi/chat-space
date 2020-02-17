@@ -13,29 +13,8 @@
   .chat-side__groups
     - current_user.groups.each do |group|
       .chat-side__groups__group
-        = link_to '#', class: "group-link" do
+        = link_to group_messages_path(group.id), class: "group-link" do
           .group-name
             = group.name
           .latest-message
-            メッセージはまだありません。
-
-
-
-
-
-
-    -# .chat-side__groups__group
-    -#   %p.group-name
-    -#     techcamp
-    -#   %p.latest-message
-    -#     まだメッセージがありません
-    -# .chat-side__groups__group
-    -#   %p.group-name
-    -#     techcamp
-    -#   %p.latest-message
-    -#     まだメッセージがありません
-    -# .chat-side__groups__group
-    -#   %p.group-name
-    -#     techcamp
-    -#   %p.latest-message
-    -#     まだメッセージがありません
+            = group.show_last_message
